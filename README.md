@@ -1,6 +1,7 @@
 # DDoS
-For Ukraine
-Simple javascript page to open pages for DDoS. # of open windws and duration length are selectable.
+For Ukraine!
+For tor browser, or behind VPN.
+Simple javascript page to open pages for DDoS. # of open windws and duration open are selectable.
 Work in progress.
 
 If you are a graphic designer and have a better page and want to share, let me know.
