@@ -1,8 +1,13 @@
-# DDoS
+#DDoS
+
+Target list updated 03/05/2022 20:26UTC
+
 For Ukraine!
-For tor browser, or behind VPN.
+
+For use with tor browser, or behind VPN.
 Simple javascript page to open pages for DDoS. # of open windws and duration open are selectable.
-Work in progress.
+
+This is a work in progress.
 
 If you are a graphic designer and have a better page and want to share, let me know.
 
