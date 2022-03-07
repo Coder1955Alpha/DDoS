@@ -1,11 +1,14 @@
-#DDoS
+DDoS
 
-Target list updated 03/05/2022 20:26UTC
+Target list updated 03/07/2022 22:446UTC
 
 For Ukraine!
 
-For use with tor browser, or behind VPN.
-Simple javascript page to open pages for DDoS. # of open windws and duration open are selectable.
+This DDoS script is designed for low impact on YOUR local network. Open and run it. Open a new browser window if you want to use the internet.
+
+For use with tor browser, or behind VPN with Chrome or Firefox NOT OPERA.
+Simple javascript page to open pages for DDoS. # of open windows and duration open are selectable.
+open the script in a new window. When you tell the script to START, it will open the number of tabs that you select (1-25). Each tab will remain open the number of seconds you set (1-30) then close, and a new tab with a new target will open.
 
 This is a work in progress.
 
