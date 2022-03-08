@@ -1,6 +1,6 @@
 DDoS
 
-Target list updated 03/07/2022 22:446UTC
+Target list updated 03/08/2022 18:446UTC
 
 For Ukraine!
 
